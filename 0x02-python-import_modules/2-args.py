@@ -2,7 +2,7 @@
 
 if __name__ == "__main__":
 
-    import sys as s
+    import sys
 
     count = len(s.argv) - 1
     if count == 0:
