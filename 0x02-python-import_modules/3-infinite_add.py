@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
-import sys
+if  __name__ == "__main__":
 
-if __name__ == "__main__":
+    import sys as s
 
-    sum = 0
-
-    for i in range(1, len(sys.argv)):
-        sum += int(sys.argv[i])
-
-        print(sum)
+    count = 0
+    for i in range(len(s.argv) - 1):
+            count += int(s.argv[i + 1])
+    print("{}".format(count))
