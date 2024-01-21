@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-if __name__ == "main":
+if __name__ == "__main__":
 
     import hidden_4 as h
 
-    name = dir(h)
+    names = dir(h)
 
     for name in names:
 
