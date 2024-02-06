@@ -1,0 +1,1 @@
+Exceptions in Python are special events that occur when the normal flow of a program is disrupted due to errors or unexpected conditions. They allow you to handle errors gracefully, preventing your program from crashing. By using try-except blocks, you can catch and respond to exceptions, ensuring that your code can recover from errors and continue running smoothly.
