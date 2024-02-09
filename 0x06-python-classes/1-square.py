@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""a class with an object size in it"""
-
+""" class Square that defines a square"""
 
 
 class Square:
-    """defining a private object size inside class square"""
-    def ___init__(self, size):
-        """initializing object"""
-        self.__size = size
+    """ class Square that defines a square"""
+    def __init__(self, size):
+        """initialize square
+        Args:
+            size (int): size of the square
+        """
+        self.__size = size 
