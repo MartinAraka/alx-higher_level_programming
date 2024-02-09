@@ -2,8 +2,9 @@
 """a class with an object size in it"""
 
 
+
 class Square:
     """defining a private object size inside class square"""
     def ___init__(self, size):
-        """initializing square"""
+        """initializing object"""
         self.__size = size
