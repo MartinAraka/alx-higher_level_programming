@@ -1,48 +1,30 @@
 #!/usr/bin/python3
-
 """
-
-This module contains a function that builds class Rectangle
-
+class rectangle has private instance width and private instance height
 """
 
 
 class Rectangle:
     """
-
-    Defines a rectangle
-
+    takes in private instances width and height
     """
+
     def __init__(self, width=0, height=0):
-        """
-
-        Instantiates object of class Rectangle
-
-        Args:
-        width (int and optional): short side, defaults to 0
-        height (int and optional): long side, defaults to 0
-
-        Raises:
-        TypeError: if length or width not an int
-        ValueError: if length or width < 0
-
-        """
+        """define object width and height"""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Returns the width of object of class Rectangle"""
+        """get access tp private instance width
+        return width"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """
-
-        Sets width of object of class Rectangle
-
-        """
-        if not isinstance(value, int):
+        """Raise Typeerror if width is not integer
+        valueerror if width is less than 0"""
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -50,12 +32,15 @@ class Rectangle:
 
     @property
     def height(self):
-        """
+        """get access tp private instance height
+        return height"""
+        return self.__height
 
-        Sets height of object of class Rectangle
-
-        """
-        if not isinstance(value, int):
+    @height.setter
+    def height(self, value):
+        """Raise Typeerror if height is not integer
+        valueerror is height is less than 0"""
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
