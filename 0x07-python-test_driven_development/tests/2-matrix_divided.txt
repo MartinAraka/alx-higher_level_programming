@@ -1,0 +1,90 @@
+Test Cases for 2-matrix_divided.py module
+=========================================
+
+The ``2-matrix_divided`` module returns a copy of a matrix elements divided by a numeric
+
+Usage
+=====
+
+Importing ``2-matrix_divided`` module
+	>>> div = __import__('2-matrix_divided').matrix_divided
+
+Testing with everything right
+	>>> matrix = [[1, 2, 3],[1, 2, 3]]
+	>>> div(matrix, 3)
+	[[0.33, 0.67, 1.0], [0.33, 0.67, 1.0]]
+
+	>>> matrix = [[1, 2, 3],[1, 2, 3]]
+	>>> div(matrix, 0.1)
+	[[10.0, 20.0, 30.0], [10.0, 20.0, 30.0]]
+
+Testing with infinity as divisor
+	>>> matrix = [[1, 2, 3],[1, 2, 3]]
+	>>> div(matrix, float('inf'))
+	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Testing with an empty list
+	>>> div([[]], 3)
+	[[]]
+
+	>>> div([], 3)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing with matrix with wrong types
+	>>> matrix = [['a', 'b', 'c'],[1, 2, 3]]
+	>>> div(matrix, 3)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix = [(1, 2, 3),[1, 2, 3]]
+	>>> div(matrix, 3)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix = [[1, 'b', 'c'],[1, 2, 3]]
+	>>> div(matrix, 3)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix = []
+	>>> div(matrix, 3)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing with zero divisor
+	>>> matrix = [[1, 2, 3], [1, 2, 3]]
+	>>> div(matrix, 0)
+	Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
+
+Testing with wrong type divisor
+	>>> matrix = [[1, 2, 3], [1, 2, 3]]
+	>>> div(matrix, 'a')
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+	>>> matrix = [[1, 2, 3], [1, 2, 3]]
+	>>> div(matrix, ('a', 'b'))
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+	>>> matrix = [[1, 2, 3], [1, 2, 3]]
+	>>> div(matrix, [1])
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+	>>> matrix = [[1, 2, 3], [1, 2, 3]]
+	>>> div(matrix, '1')
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number

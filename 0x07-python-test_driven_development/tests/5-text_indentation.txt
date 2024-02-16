@@ -1,0 +1,40 @@
+Test Cases for ``5-text_indentation``
+====================================
+
+This module utilises the doctest module to test ``5-text_indentation``
+
+Usage
+====
+
+importing the module
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Testing everything OK
+	>>> text_indentation("I love solving problems!")
+	I love solving problems!
+
+Trying for one line
+	>>> text_indentation("poppy.")
+	poppy.
+	<BLANKLINE>
+
+Testing wrong type
+	>>> text_indentation(9)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+Testing for a typecasted string
+	>>> text_indentation(str(985))
+	985
+
+Testing multiple spaces
+	>>> text_indentation("Martin.     Araka")
+	MartinAraka.
+	<BLANKLINE>
+	Araka
+
+Testing full stop
+	>>> text_indentation('boy.cott')
+	boy.
+	<BLANKLINE>
+	cott
