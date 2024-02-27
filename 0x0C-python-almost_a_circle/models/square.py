@@ -13,3 +13,12 @@ class Square(Rectangle):
         """takes in similar arguments to rectangle"/
         "replaces width and height with size"""
         super().__init__(size, size, x, y, id)
+
+    @property
+    def size(self):
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        self.width = value
+        self.height = value
