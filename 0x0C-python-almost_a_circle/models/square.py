@@ -50,7 +50,7 @@ class Square(Rectangle):
                 elif i == "y":
                     self.y = j
 
-     def to_dictionary(self):
+    def to_dictionary(self):
         """Return the dictionary representation of a Rectangle."""
         return {
             "id": self.id,
