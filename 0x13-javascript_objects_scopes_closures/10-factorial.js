@@ -11,4 +11,4 @@ function factorial (number) {
   }
 }
 
-console.log(factorial(number));
+console.log(factorial(parseInt(process.argv[2])));
