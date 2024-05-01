@@ -1,24 +1,30 @@
 #!/usr/bin/python3
+"""states models
 """
-Script that takes in the name of a state as an argument and lists
-all cities of that state, using the database
-"""
-import MySQLdb
-from sys import argv
+if __name__ == "__main__":
+    import MySQLdb
+    import sys
 
-if __name__ == '__main__':
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3], state = argv[4])
-
+    db_host = "localhost"
+    db_user = sys.argv[1]  # "your_username"
+    db_password = sys.argv[2]  # "your_password"
+    db_name = sys.argv[3]  # "your_database_name"
+    port = 3306
+    state_name = sys.argv[4]  # "your_database_name"
+    query = "SELECT name FROM cities WHERE state_id = \
+(SELECT id FROM states WHERE name LIKE BINARY %s) ORDER BY cities.id ASC"
+    params = (state_name,)
+    db = MySQLdb.connect(
+        host=db_host, user=db_user, passwd=db_password, db=db_name, port=port
+    )
     cursor = db.cursor()
-    cursor.execute("SELECT cities.id, cities.name FROM cities\
-                INNER JOIN states ON cities.state_id = states.id\
-                WHERE states.name = %s", [argv[4]])
 
+    cursor.execute(query, params)
     rows = cursor.fetchall()
-    j = []
-    for i in rows:
-        j.append(i[1])
-    print(", ".join(j))
+    tuples = ()
+    for row in rows:
+        tuples += row
+    print(*tuples, sep=", ")
+
     cursor.close()
     db.close()
